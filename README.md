@@ -28,7 +28,7 @@ never reaches outside the lab environment.
 
 ![VMnet2 Configuration](assets/vmnet2-config.png)
 
-## Environment
+## Environment and Architecture Diagram
 | VM | OS | Role | IP |
 |----|----|------|----|
 | WinServer-DC | Windows Server 2022 | Domain Controller | 192.168.100.7 |
@@ -37,15 +37,39 @@ never reaches outside the lab environment.
 | Kali Linux | Kali Rolling | Attacker | 192.168.100.20 |
 | REMnux | REMnux 7 | Malware Analysis | 192.168.100.30 |
 
-## Architecture
 ![Lab Architecture](assets/architecture-diagram.png)
 
-## Key Skills Demonstrated
-- Active Directory design — OUs, users, groups, GPOs, audit policies
-- SIEM deployment and agent enrollment
-- Windows event log collection and centralized monitoring
-- Detection of AD events — user creation, deletion, group changes
+## Phase breakdown
 
-## Tools Used
-`Wazuh` `Windows Server 2025` `Active Directory` `Ubuntu 22.04`
-`VMware Workstation` `PowerShell` `Sysmon`
+- **[01-active-directory](assets/01-active-directory/README.md)**  
+  Deployment of the lab domain, OU structure, users, groups, and baseline Group Policy configuration.
+
+- **[02-siem-wazuh](assets/02-siem-wazuh/README.md)**  
+  Installation of the Wazuh SIEM stack and integration with Active Directory telemetry.  
+  This phase covers the Ubuntu-based Wazuh deployment, agent installation on Windows systems, domain controller log collection, and validation of security events in the Wazuh dashboard.
+
+- **[03-windows-endpoint](assets/04-windows-endpoint/README.md)**  
+  *PLANNED* - Build and configuration of the Windows 10 victim machine, including endpoint logging and monitoring preparation.
+
+- **[04-network-monitoring](assets/05-network-monitoring/README.md)**  
+  *PLANNED* - Network-level visibility for the lab environment, including traffic capture and monitoring considerations.
+
+- **[05-attack-simulations](assets/06-attack-simulations/README.md)**  
+  *PLANNED* - Controlled attack simulations used to validate detections and generate meaningful telemetry.
+
+- **[06-ir-playbooks](assets/07-ir-playbooks/README.md)**  
+  *PLANNED* - Detection and response procedures developed from the alerts and artifacts produced in the lab.
+
+## Technologies & skills
+
+- Windows Server 2025 Active Directory
+- Wazuh SIEM deployment and agent management
+- Windows endpoint monitoring
+- PowerShell and Linux administration
+- Detection engineering and incident response documentation
+
+## How to navigate this repository
+
+- Start with **[01-active-directory](assets/01-active-directory/README.md)** to understand the domain design.
+- Continue to **[02-siem-wazuh](assets/02-siem-wazuh/README.md)** for SIEM deployment and AD log integration.
+- Use the remaining numbered folders for endpoint configuration, network monitoring, attack simulation, and response documentation.
