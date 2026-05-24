@@ -48,16 +48,16 @@ never reaches outside the lab environment.
   Installation of the Wazuh SIEM stack and integration with Active Directory telemetry.  
   This phase covers the Ubuntu-based Wazuh deployment, agent installation on Windows systems, domain controller log collection, and validation of security events in the Wazuh dashboard.
 
-- **[03-windows-endpoint](assets/04-windows-endpoint/README.md)**  
+- **[03-windows-endpoint](assets/03-windows-endpoint/README.md)**  
   *PLANNED* - Build and configuration of the Windows 10 victim machine, including endpoint logging and monitoring preparation.
 
-- **[04-network-monitoring](assets/05-network-monitoring/README.md)**  
+- **[04-network-monitoring](assets/04-network-monitoring/README.md)**  
   *PLANNED* - Network-level visibility for the lab environment, including traffic capture and monitoring considerations.
 
-- **[05-attack-simulations](assets/06-attack-simulations/README.md)**  
+- **[05-attack-simulations](assets/05-attack-simulations/README.md)**  
   *PLANNED* - Controlled attack simulations used to validate detections and generate meaningful telemetry.
 
-- **[06-ir-playbooks](assets/07-ir-playbooks/README.md)**  
+- **[06-ir-playbooks](assets/06-ir-playbooks/README.md)**  
   *PLANNED* - Detection and response procedures developed from the alerts and artifacts produced in the lab.
 
 ## Technologies & skills
