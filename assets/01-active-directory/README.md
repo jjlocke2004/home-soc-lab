@@ -17,97 +17,107 @@ and policies configured here.
 ![Active Directory architeture diagram](active-directory-architecture-diagram.png)
 
 ## Steps Taken
-**1. Deployed Windows Server 2025 VM in VMware** -
+**1. Deployed Windows Server 2025 VM in VMware** 
+
 Created new VM with 3GB RAM, 60GB disk, and connected it to the VMnet2 host-only network. 
 Assigned a static IP and pointed DNS at itself in preparation for AD DS promotion
 
-**2. Promoted server to domain controller** -
+**2. Promoted server to domain controller**
+
 Installed the AD DS role using Powershell and promoted the server to a domain controller, 
 creating the soclab.local forest
 
-**3. Built the OU structure** -
+**3. Built the OU structure**
+
 Created a realistic organizational unit structure mirroring how a small company 
 would organize Active Directory. Made department OUs nested under a top-level SOCLAB Users OU,
 with seperate OUs for admin accounts and service accounts.
 
-**4. Created user accounts** -
+**4. Created user accounts**
+
 Created 9 user accounts across four departments - HR, Finance, IT, and Management.
 Accounts were created with varying privilege levels including standard users, helpdesk stadd,
 a domain admin, and 3 service accounts. Some accounts were intentionally misconfigured to serve 
 as attack tagets in later phases.
 
-**5. Created security groups and assignmed members** -
+**5. Created security groups and assignmed members** 
+
 Built 6 security groups covering department membership, helpdesk access, VPN permissions, and file share access.
 Members were assignmed to reflect realistic job function access.
 
-**6. Configured audit policies** -
+**6. Configured audit policies**
+
 Enabled granular audit logging across Kerberos, Account Management, directory service accounts, and logon events.
 These policies are what allow Wazuh to detect AD-based attacks in later phases.
 
 ## Screenshots
 ### Domain Controller Setup
+#### Static IP
 *Assigned a static IP of 192.168.100.7 to ensure consistent addressing across the lab.*
 
 ![Set Static IP on DC](screenshots/set-static-ip-on-dc.png)
 
-
+#### Point DNS to Itself
 *Configured the DC to point DNS at itself, which is required for Active Directory to function correctly.*
 
 ![Loop Back DNS and Verify Network Changes](screenshots/loop-back-dns-and-verify-network-changes.png)
 
-
+#### Install Active Directory
 *Installed AD DS*
 
 ![Downloaded AD DS](screenshots/downloaded-ad-ds.png)
 
-
+#### Install AD DS Forest and Promote to DC
 *Installed the AD DS forest and promoted the server to a domain controller, creating the soclab.local forest.*
 
 ![Downloaded AD DS Forest Then Restart](screenshots/downloaded-addsforest-then-restart.png)
 
-
+#### Confirmation in AD GUI
 *Confirmed the domain controller is live and soclab.local is fully operational.*
 
 ![AD GUI Showing Joined DC](screenshots/ad-gui-showing-joined-dc.png)
 
 ### OU Stucture
+#### Create Top-Level OUs
 *Created the top-level organizational units via PowerShell to mirror a real enterprise AD structure.*
 
 ![Creating Top Level OUs](screenshots/creating-top-level-ou's.png)
 
-
+#### Create Sub-OUs
 *Added department sub-OUs under SOCLAB Users to organize accounts by job function.*
 
 ![Creating Sub OUs Under SOCLAB Users](screenshots/creating-sub-ous-under-soclab-users.png)
 
-
+#### Verify in AD GUI
 *Verified the finished OU hierarchy in Active Directory Users and Computers.*
 
 ![AD GUI Showing Created Top Level OUs and Sub OUs](screenshots/ad-gui-showing-created-top-level-ous-and-sub-ous.png)
 
 ### User Accounts 
+#### Create Users For Each Department Sub-OU
 *Created department user accounts via PowerShell with attributes including title, department, and email.*
 
 *Example Below is me creating HR users - did the same for each deparment*
 
 ![Creating HR Users CMD](screenshots/creating-hr-users-cmd.png)
 
-
+#### Verify in AD GUI
 *Verified all users were present in Active Directory Users and Computers and in their respective department OUs.*
 
 ![HR Users AD GUI](screenshots/hr-users-ad-gui.png)
 
-
+#### Create Admin Account
 *Created the itadmin account and elevated it to Domain Admin to simulate a privileged target.*
 
 ![Creating Admin Account CMD](screenshots/creating-admin-account-cmd.png)
 
-
+####
 *Verified admin account was present and in the correct OU.*
 
 ![Creating Admin Acccount AD GUI](screenshots/creating-admin-account-ad-gui.png)
 
 ### Service Accounts
+#### Create Service Accounts
 *Created svc-sql with a Service Principal Name set, intentionally making it Kerberoastable for Phase 6.*
 
 ![Creating SQL Service Account CMD](screenshots/creating-sql-service-account-cmd.png)
@@ -118,11 +128,12 @@ These policies are what allow Wazuh to detect AD-based attacks in later phases.
 ![Service Accounts AD GUI](screenshots/service-accounts-ad-gui.png)
 
 ### Security Groups and Membership
+#### Create Security Groups
 *Created six security groups covering department access, VPN permissions, and file share rights.*
 
 ![Creating Security Groups CMD](screenshots/creating-security-groups-cmd.png)
 
-
+#### Assign Users to Security Groups
 *Assigned users to groups via PowerShell to reflect realistic job function based access.*
 
 ![Assigning Members CMD](screenshots/assigning-members-cmd.png)
@@ -133,16 +144,17 @@ These policies are what allow Wazuh to detect AD-based attacks in later phases.
 ![AD GUI Groups and Members](screenshots/ad-gui-groups-and-members.png)
 
 ### Group Policy
+#### Password Policy
 *Configured a domain-wide password policy enforcing minimum length, complexity, and expiration.*
 
 ![Creating Password Policy CMD](screenshots/creating-password-policy-cmd.png)
 
-
+#### Account Lockout Policy
 *Created an account lockout GPO to lock accounts after five failed attempts, linked to the domain.*
 
 ![New GPO Account Lockout Policy](screenshots/new-gpo-account-lockout-policy.png)
 
-
+#### Restrict Local Admin Abuse Policy
 *Created a GPO to restrict local admin abuse, linked to the SOCLAB Computers OU.*
 
 ![New GPO Restrict Local Admin](screenshots/new-gpo-restrict-local-admin.png)
