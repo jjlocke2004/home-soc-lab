@@ -43,77 +43,116 @@ These policies are what allow Wazuh to detect AD-based attacks in later phases.
 
 ## Screenshots
 ### Domain Controller Setup
-![Set Static IP on DC](screenshots/set-static-ip-on-dc.png)
 *Assigned a static IP of 192.168.100.7 to ensure consistent addressing across the lab.*
 
-![Loop Back DNS and Verify Network Changes](screenshots/loop-back-dns-and-verify-network-changes.png)
+![Set Static IP on DC](screenshots/set-static-ip-on-dc.png)
+
+
 *Configured the DC to point DNS at itself, which is required for Active Directory to function correctly.*
 
+![Loop Back DNS and Verify Network Changes](screenshots/loop-back-dns-and-verify-network-changes.png)
+
+
+*Installed AD DS*
+
 ![Downloaded AD DS](screenshots/downloaded-ad-ds.png)
-*Installed the AD DS role and promoted the server to a domain controller, creating the soclab.local forest.*
 
-![Downloaded AD DS Forest Then Restart](screenshots/downloaded-adds-forest-then-restart.png)
-*Installed the AD DS role and promoted the server to a domain controller, creating the soclab.local forest.*
 
-![AD GUI Showing Joined DC](screenshots/ad-gui-showing-joined-dc.png)
+*Installed the AD DS forest and promoted the server to a domain controller, creating the soclab.local forest.*
+
+![Downloaded AD DS Forest Then Restart](screenshots/downloaded-addsforest-then-restart.png)
+
+
 *Confirmed the domain controller is live and soclab.local is fully operational.*
 
+![AD GUI Showing Joined DC](screenshots/ad-gui-showing-joined-dc.png)
+
 ### OU Stucture
-![Creating Top Level OUs](screenshots/creating-top-level-ous.png)
 *Created the top-level organizational units via PowerShell to mirror a real enterprise AD structure.*
 
-![Creating Sub OUs Under SOCLAB Users](screenshots/creating-sub-ous-under-soclab-users.png)
+![Creating Top Level OUs](screenshots/creating-top-level-ou's.png)
+
+
 *Added department sub-OUs under SOCLAB Users to organize accounts by job function.*
 
-![AD GUI Showing Created Top Level OUs and Sub OUs](screenshots/ad-gui-showing-created-top-level-ous-and-sub-ous.png)
+![Creating Sub OUs Under SOCLAB Users](screenshots/creating-sub-ous-under-soclab-users.png)
+
+
 *Verified the finished OU hierarchy in Active Directory Users and Computers.*
 
+![AD GUI Showing Created Top Level OUs and Sub OUs](screenshots/ad-gui-showing-created-top-level-ous-and-sub-ous.png)
+
 ### User Accounts 
-![Creating HR Users CMD](screenshots/creating-hr-users-cmd.png)
 *Created department user accounts via PowerShell with attributes including title, department, and email.*
 
-![HR Users AD GUI](screenshots/hr-users-ad-gui.png)
+*Example Below is me creating HR users - did the same for each deparment*
+
+![Creating HR Users CMD](screenshots/creating-hr-users-cmd.png)
+
+
 *Verified all users were present in Active Directory Users and Computers and in their respective department OUs.*
 
-![Creating Admin Account CMD](screenshots/creating-admin-account-cmd.png)
+![HR Users AD GUI](screenshots/hr-users-ad-gui.png)
+
+
 *Created the itadmin account and elevated it to Domain Admin to simulate a privileged target.*
 
-![Creating Admin Acccount AD GUI](screenshots/creating-admin-account-ad-gui.png)
+![Creating Admin Account CMD](screenshots/creating-admin-account-cmd.png)
+
+
 *Verified admin account was present and in the correct OU.*
 
+![Creating Admin Acccount AD GUI](screenshots/creating-admin-account-ad-gui.png)
+
 ### Service Accounts
-![Creating SQL Service Account CMD](screenshots/creating-sql-service-account-cmd.png)
 *Created svc-sql with a Service Principal Name set, intentionally making it Kerberoastable for Phase 6.*
 
-![Service Accounts AD GUI](screenshots/service-accounts-ad-gui.png)
+![Creating SQL Service Account CMD](screenshots/creating-sql-service-account-cmd.png)
+
+
 *All three service accounts visible in the Service Accounts OU with descriptions confirming their roles.*
 
+![Service Accounts AD GUI](screenshots/service-accounts-ad-gui.png)
+
 ### Security Groups and Membership
-![Creating Security Groups CMD](screenshots/creating-security-groups-cmd.png)
 *Created six security groups covering department access, VPN permissions, and file share rights.*
 
-![Assigning Members CMD](screenshots/assigning-members-cmd.png)
+![Creating Security Groups CMD](screenshots/creating-security-groups-cmd.png)
+
+
 *Assigned users to groups via PowerShell to reflect realistic job function based access.*
 
-![AD GUI Groups and Members](screenshots/ad-gui-groups-and-members.png)
+![Assigning Members CMD](screenshots/assigning-members-cmd.png)
+
+
 *Confirmed group membership in the GUI showing users correctly assigned across all six groups.*
 
+![AD GUI Groups and Members](screenshots/ad-gui-groups-and-members.png)
+
 ### Group Policy
-![Creating Password Policy CMD](screenshots/creating-password-policy-cmd.png)
 *Configured a domain-wide password policy enforcing minimum length, complexity, and expiration.*
 
-![New GPO Account Lockout Policy](screenshots/new-gpo-account-lockout-policy.png)
+![Creating Password Policy CMD](screenshots/creating-password-policy-cmd.png)
+
+
 *Created an account lockout GPO to lock accounts after five failed attempts, linked to the domain.*
 
-![New GPO Restrict Local Admin](screenshots/new-gpo-restrict-local-admin.png)
+![New GPO Account Lockout Policy](screenshots/new-gpo-account-lockout-policy.png)
+
+
 *Created a GPO to restrict local admin abuse, linked to the SOCLAB Computers OU.*
 
+![New GPO Restrict Local Admin](screenshots/new-gpo-restrict-local-admin.png)
+
 ### Audit Policy
-![Creating Audit Policy CMD](screenshots/creating-audit-policy-cmd.png)
 *Enabled granular audit categories covering Kerberos, account management, logon, and directory service events.*
 
-![Auditpol Results](screenshots/auditpol-results.png)
+![Creating Audit Policy CMD](screenshots/creating-audit-policy-cmd.png)
+
+
 *Verified all audit policies applied correctly — these event logs feed directly into Wazuh in Phase 2.*
+
+![Auditpol Results](screenshots/auditpol-results.png)
 
 ## Outcome
 A fully functioning domain controller running soclab.local wiht a realistic enterprise structure. 
