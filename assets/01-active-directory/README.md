@@ -14,7 +14,7 @@ and policies configured here.
 - **IP:** 192.168.100.7
 - 
 ## Architecture Blueprint Diagram
-![Active Directory architeture diagram](active-directory-architeture-diagram.png)
+![Active Directory architeture diagram](active-directory-architecture-diagram.png)
 
 ## Steps Taken
 **1. Deployed Windows Server 2025 VM in VMware** -
