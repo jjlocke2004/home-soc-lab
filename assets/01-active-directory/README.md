@@ -12,7 +12,7 @@ and policies configured here.
 - **Role:** Domain Controller
 - **Domain:** soclab.local
 - **IP:** 192.168.100.7
-- 
+
 ## Architecture Blueprint Diagram
 ![Active Directory architeture diagram](active-directory-architecture-diagram.png)
 
