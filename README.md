@@ -9,7 +9,7 @@ threat detection, and incident response — mapped to real SOC workflows.
 |-------|-----------|--------|
 | 1 | Active Directory (Windows Server 2022) | ✅ Complete |
 | 2 | SIEM — Wazuh 4.7.5 on Ubuntu 22.04 | ✅ Complete |
-| 3 | Windows 10 Endpoint - Victim Machine | 🔄 In Progress |
+| 3 | Windows 10 Endpoint - Victim Machine | ✅ Complete |
 | 4 | Network Monitoring — Zeek | 🔄 In Progress |
 | 5 | Attack Simulations — Kali Linux | ⏳ Planned |
 | 6 | IR Playbooks | ⏳ Planned |
@@ -49,7 +49,7 @@ never reaches outside the lab environment.
   This phase covers the Ubuntu-based Wazuh deployment, agent installation on Windows systems, domain controller log collection, and validation of security events in the Wazuh dashboard.
 
 - **[03-windows-endpoint](assets/03-windows-endpoint/README.md)**  
-  *PLANNED* - Build and configuration of the Windows 10 victim machine, including endpoint logging and monitoring preparation.
+  Built and configured Windows 10 victim machine, including endpoint logging and monitoring preparation.
 
 - **[04-network-monitoring](assets/04-network-monitoring/README.md)**  
   *PLANNED* - Network-level visibility for the lab environment, including traffic capture and monitoring considerations.
