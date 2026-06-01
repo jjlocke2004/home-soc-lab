@@ -52,7 +52,7 @@ never reaches outside the lab environment.
   Built and configured Windows 10 victim machine, including endpoint logging and monitoring preparation.
 
 - **[04-network-monitoring](assets/04-network-monitoring/README.md)**  
-  *PLANNED* - Network-level visibility for the lab environment, including traffic capture and monitoring considerations.
+  *IN-PROGRESS* - Network-level visibility for the lab environment, including traffic capture and monitoring considerations.
 
 - **[05-attack-simulations](assets/05-attack-simulations/README.md)**  
   *PLANNED* - Controlled attack simulations used to validate detections and generate meaningful telemetry.
