@@ -31,7 +31,7 @@ never reaches outside the lab environment.
 ## Environment and Architecture Diagram
 | VM | OS | Role | IP |
 |----|----|------|----|
-| WinServer-DC | Windows Server 2022 | Domain Controller | 192.168.100.7 |
+| WinServer-DC | Windows Server 2025 | Domain Controller | 192.168.100.7 |
 | Wazuh SIEM | Ubuntu 22.04 LTS | SIEM / Dashboard | 192.168.100.5 |
 | Win10-Victim | Windows 10 | Endpoint / Domain Member | 192.168.100.10 |
 | Kali Linux | Kali Rolling | Attacker | 192.168.100.20 |
