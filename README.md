@@ -7,7 +7,7 @@ threat detection, and incident response — mapped to real SOC workflows.
 ## Lab Status
 | Phase | Component | Status |
 |-------|-----------|--------|
-| 1 | Active Directory (Windows Server 2022) | ✅ Complete |
+| 1 | Active Directory (Windows Server 2025) | ✅ Complete |
 | 2 | SIEM — Wazuh 4.7.5 on Ubuntu 22.04 | ✅ Complete |
 | 3 | Windows 10 Endpoint - Victim Machine | ✅ Complete |
 | 4 | Network Monitoring — Zeek | 🔄 In Progress |
