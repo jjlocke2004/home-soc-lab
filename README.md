@@ -10,8 +10,8 @@ threat detection, and incident response — mapped to real SOC workflows.
 | 1 | Active Directory (Windows Server 2025) | ✅ Complete |
 | 2 | SIEM — Wazuh 4.7.5 on Ubuntu 22.04 | ✅ Complete |
 | 3 | Windows 10 Endpoint - Victim Machine | ✅ Complete |
-| 4 | Network Monitoring — Zeek | 🔄 In Progress |
-| 5 | Attack Simulations — Kali Linux | ⏳ Planned |
+| 4 | Network Monitoring — Zeek |  ✅ Complete|
+| 5 | Attack Simulations — Kali Linux | 🔄 In Progress |
 | 6 | IR Playbooks | ⏳ Planned |
 
 ## Lab Network Configuration
