@@ -1,8 +1,7 @@
 # Home SOC Lab
 
-A production-relevant Security Operations Center lab built from scratch
-using free tools. Covers Active Directory administration, SIEM deployment,
-threat detection, and incident response — mapped to real SOC workflows.
+A production-relevant Security Operations Center lab. Covers Active Directory administration, SIEM deployment,
+threat detection, and incident response.
 
 ## Lab Status
 | Phase | Component | Status |
