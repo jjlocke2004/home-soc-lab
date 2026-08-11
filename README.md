@@ -6,7 +6,7 @@ threat detection, and incident response.
 ## Lab Status
 | Phase | Component | Status |
 |-------|-----------|--------|
-| 1 | Active Directory (Windows Server 2025) | ✅ Complete |
+| 1 | Active Directory (Windows Server 2025) | See [My AD Lab Repo](https://github.com/jjlocke2004/active-directory-lab) |
 | 2 | SIEM — Wazuh 4.7.5 on Ubuntu 22.04 | ✅ Complete |
 | 3 | Windows 10 Endpoint - Victim Machine | ✅ Complete |
 | 4 | Network Monitoring — Zeek |  ✅ Complete|
